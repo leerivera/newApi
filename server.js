@@ -4,9 +4,17 @@ const app = express()
 const PORT = 8000
 
 
-const spiderman = {
-    'age': 29,
-     
+const superheros = {
+    'spiderman': {
+        'birthName': 'Peter Parker',
+        'powers': 'super strenght, spidey-sense, wall-crawling'
+
+    },
+    'the punisher':{
+        'birthName': 'Frank Castle',
+        'powers': 'none, skilled combantant'
+    }
+
 }
 
 
@@ -14,8 +22,8 @@ app.get('/', (request, response) =>{
     response.sendFile(__dirname + '/index.html')
 })
 
-app.getMaxListeners('/api', (request, response) => {
-     response.json()
+app.get('/api', (request, response) => {
+     response.json(superheros)
 })
 
 
