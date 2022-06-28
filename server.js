@@ -12,7 +12,7 @@ const superheros = {
     },
     'the punisher':{
         'birthName': 'Frank Castle',
-        'powers': 'none, skilled combantant'
+        'powers': 'none, skilled combatant'
     }
 
 }
@@ -22,7 +22,8 @@ app.get('/', (request, response) =>{
     response.sendFile(__dirname + '/index.html')
 })
 
-app.get('/api', (request, response) => {
+app.get('/api/:superheroName', (request, response) => {
+     console.log(request.params.superheroName)
      response.json(superheros)
 })
 
