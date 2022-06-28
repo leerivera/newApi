@@ -23,8 +23,12 @@ app.get('/', (request, response) =>{
 })
 
 app.get('/api/:superheroName', (request, response) => {
-     console.log(request.params.superheroName)
-     response.json(superheros)
+     const superheroName = request.params.superheroName.toLocaleLowerCase()
+     if(superheros[superheroName]){
+        response.json(superheros[superheroName])
+     }else{
+        response.json("not a hero")
+     }
 })
 
 
